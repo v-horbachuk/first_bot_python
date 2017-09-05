@@ -1,1 +1,1 @@
-web: python bot_test_class.py
+web: python cogn_telebot.py
