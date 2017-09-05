@@ -1,7 +1,6 @@
 import telebot
-import constants
 
-bot = telebot.TeleBot(constants.token)
+bot = telebot.TeleBot('408316237:AAGFODWWvu-6mOXRBc_klCIlDKV_5lPATMk')
 
 #---------------------Message handlers: for commands---------------------
 
