@@ -1,9 +1,9 @@
 import telebot
 import time
 
-#My_TOKEN: 408316237:AAGFODWWvu-6mOXRBc_klCIlDKV_5lPATMk
+#My_TOKEN: 350637828:AAHlEKLAi_WSV0JGixo5kpZvy6un88-PoNk
 
-bot = telebot.TeleBot('350637828:AAHlEKLAi_WSV0JGixo5kpZvy6un88-PoNk')
+bot = telebot.TeleBot('408316237:AAGFODWWvu-6mOXRBc_klCIlDKV_5lPATMk')
 
 #---------------------Message handlers: for commands---------------------
 
