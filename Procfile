@@ -1,1 +1,1 @@
-web: python cogn_telebot.py
+worker: python cogn_telebot.py

@@ -10,7 +10,7 @@ bot = telebot.TeleBot('408316237:AAGFODWWvu-6mOXRBc_klCIlDKV_5lPATMk')
 @bot.message_handler(commands=['start'])
 def handle_start(message):
     bot.send_message(message.from_user.id, 'Неу!')
-    user_markup = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
+    user_markup = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
     user_markup.row('/prior_to_start', '/stop')
     user_markup.row('New Comer', 'Buddy')
     user_markup.row('Supervisor')
@@ -18,7 +18,7 @@ def handle_start(message):
 
 @bot.message_handler(commands=['prior_to_start'])
 def handle_prior(message):
-    user_markup = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
+    user_markup = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
     user_markup.row('/prior_to_start', '/stop')
     user_markup.row('New Comer', 'Buddy')
     user_markup.row('Supervisor')
@@ -40,7 +40,7 @@ def handle_message(message):
 #____________________________________________________________________________________
 
     if message.text == 'Supervisor':
-        user_markup = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=False)
+        user_markup = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
         user_markup.row('/prior_to_start', '/stop')
         user_markup.row('1st dаy', '1st wеek')
         user_markup.row('1st 90 dаys', '1st yeаr')
@@ -66,7 +66,7 @@ def handle_message(message):
 #__________________________________________________________________________________
 
     if message.text == 'New Comer':
-        user_markup = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=False)
+        user_markup = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
         user_markup.row('/prior_to_start', '/stop')
         user_markup.row('1st day', '1st week')
         user_markup.row('1st 90 days', '1st year')
