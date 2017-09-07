@@ -10,6 +10,14 @@ bot = telebot.TeleBot('350637828:AAHlEKLAi_WSV0JGixo5kpZvy6un88-PoNk')
 
 #---------------------Message handlers: for commands---------------------
 
+@bot.message_handler(commands=['start'])
+def handle_start(message):
+    bot.send_message(message.from_user.id, 'Неу!')
+    user_markup = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
+
+    user_markup.row('NEW COMER', 'BUDDY', 'SUPERVISOR')
+    bot.send_message(message.from_user.id, 'Which experience do you want me to demonstrate?', reply_markup=user_markup)
+
 @bot.message_handler(commands=['restart'])
 def handle_start(message):
     bot.send_message(message.from_user.id, 'Неу!')
