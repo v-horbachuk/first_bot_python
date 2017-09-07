@@ -10,7 +10,7 @@ bot = telebot.TeleBot('350637828:AAHlEKLAi_WSV0JGixo5kpZvy6un88-PoNk')
 
 #---------------------Message handlers: for commands---------------------
 
-@bot.message_handler(commands=['start'])
+@bot.message_handler(commands=['restart'])
 def handle_start(message):
     bot.send_message(message.from_user.id, 'Неу!')
     user_markup = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -86,8 +86,9 @@ def handle_message(message):
                          'And basically that\'s it. Next level – Checklist for the First Day', reply_markup=user_markup)
 
     if message.text == 'OK, that makes sense.':
+        user_markup.row('/restart')
         bot.send_message(message.from_user.id,
-                         'See you later!')
+                         'See you later!', reply_markup=user_markup)
 
 
     if message.text == 'Day 1':
@@ -135,24 +136,184 @@ def handle_message(message):
                          'And finally collect the first feedback from New Comer and agree the plan for the first week with him/her', reply_markup=user_markup)
 
     if message.text == 'Thanks for help! Awesome!':
+        user_markup.row('/restart')
         bot.send_message(message.from_user.id,
-                         'Just make it happen in best way!')
+                         'Just make it happen in best way!', reply_markup=user_markup)
 
 
     if message.text == 'Week 1':
-        bot.send_message(message.from_user.id, 'Sorry! This part is under construction. Try again later!',
-                         reply_markup=user_markup)
+        user_markup.row('I\'m always ready my artificial friend!')
+        bot.send_message(message.from_user.id, 'Hey SuperVisor! I\'m going to guide you regarding New Comer\'s first week. Are you ready?', reply_markup=user_markup)
+
+    if message.text == 'I\'m always ready my artificial friend!':
+        bot.send_message(message.from_user.id,
+                         'Then lets get started from administrative level')
+        time.sleep(2)
+        bot.send_message(message.from_user.id,
+                         'Ensure that New Comer has all equipment he/she needs to complete his/her job duties')
+        time.sleep(2)
+        bot.send_message(message.from_user.id,
+                         'Ensure that New Comer learns about PMU Benefits Platform')
+        time.sleep(2)
+        bot.send_message(message.from_user.id,
+                         'Ensure that New Comer learns about Office Support Services Platform')
+        time.sleep(2)
+        user_markup.row('Good! Lets go to performance part')
+        bot.send_message(message.from_user.id,
+                         'Ensure that New Comer gets information about how to arrange Business trips and travels', reply_markup=user_markup)
+
+    if message.text == 'Good! Lets go to performance part':
+        bot.send_message(message.from_user.id,
+                         'Yep, you have to continue introduction of PMI Principles and Practices for New Comer via Compliance Platform')
+        time.sleep(2)
+        bot.send_message(message.from_user.id,
+                         'Ensure that New Comer learns about PMU Structure and Departments')
+        time.sleep(2)
+        bot.send_message(message.from_user.id,
+                         'Ensure that New Comer learns about PMI Global Functions')
+        time.sleep(2)
+        bot.send_message(message.from_user.id,
+                         'Ensure that New Comer has passed MAP Managing & Appraising Performance (e-learning)')
+        time.sleep(2)
+        user_markup.row('I need a culture, arti! ;)')
+        bot.send_message(message.from_user.id,
+                         'Discuss Integration Objectives for the First 90 Days and Development Plan with New Comer', reply_markup=user_markup)
+
+    if message.text == 'I need a culture, arti! ;)':
+        bot.send_message(message.from_user.id,
+                         'O yes, glad you think about that')
+        time.sleep(2)
+        bot.send_message(message.from_user.id,
+                         'You have to get feedback from Buddy on New Comer’s integration;')
+        time.sleep(2)
+        bot.send_message(message.from_user.id,
+                         'Arrange welcome meeting: New Comer – You – Your Supervisor')
+        time.sleep(2)
+        user_markup.row('I\'m going to crush this!!')
+        bot.send_message(message.from_user.id,
+                         'And finally discuss with New Comer his/her adaptation progress at the end of week and get prepared for First 90 Days Checklist', reply_markup=user_markup)
+
+    if message.text == 'I\'m going to crush this!!':
+        bot.send_message(message.from_user.id,
+                         'I\'m so exited about that!')
+        time.sleep(2)
+        user_markup.row('/restart')
+        bot.send_message(message.from_user.id,
+                         'I wish to be a human and be with you there ;)', reply_markup=user_markup)
 
     if message.text == '1st Month - 90 Days':
-        bot.send_message(message.from_user.id, 'Sorry! This part is under construction. Try again later!',
+        user_markup.row('Hey an artificial one :) Let\'s go!')
+        bot.send_message(message.from_user.id, 'Hello my live friend ;) Lets talk about New Comer\'s first 90 days!',
                          reply_markup=user_markup)
+
+    if message.text == 'Hey an artificial one :) Let\'s go!':
+        bot.send_message(message.from_user.id, 'The First 90 Days is focused on delivering first results, learning the job and company culture and network building.')
+        time.sleep(3)
+        bot.send_message(message.from_user.id, 'You have to Ensure New Comer’s registration to the relevant local in-class induction into Functions')
+        time.sleep(3)
+        bot.send_message(message.from_user.id, 'For New People Managers ensure completion of online training “Understanding People Management”')
+        time.sleep(3)
+        bot.send_message(message.from_user.id, 'Ensure that New Comer completed all Compliance trainings applicable for his/her Job')
+        time.sleep(3)
+        bot.send_message(message.from_user.id, 'Ensure that New Comer studies the tobacco issues')
+        time.sleep(3)
+        user_markup.row('Understood. Culture ?')
+        bot.send_message(message.from_user.id, 'Ensure that New Comer learned about Career Stages and Talent Management approach', reply_markup=user_markup)
+
+    if message.text == 'Understood. Culture ?':
+        bot.send_message(message.from_user.id,
+                         'Yes, huge things here')
+        time.sleep(3)
+        bot.send_message(message.from_user.id,
+                         'You have to ensure that New Comer know PMI 7 Key Behaviors and understand how they relate to the job')
+        time.sleep(3)
+        bot.send_message(message.from_user.id,
+                         'Ensure that New Comer established the necessary network among colleagues and peers')
+        time.sleep(3)
+        bot.send_message(message.from_user.id,
+                         'Ensure that New Comer is aware about the Internal Communication Channels within the company:')
+        time.sleep(3)
+        bot.send_message(message.from_user.id,
+                         'We better & More Platform - JAM - Social PMI Network')
+        time.sleep(3)
+        bot.send_message(message.from_user.id,
+                         'Aromat - Corporate magazine')
+        time.sleep(3)
+        bot.send_message(message.from_user.id,
+                         'Lunch & Learn - sessions with PMU Management')
+        time.sleep(3)
+        bot.send_message(message.from_user.id,
+                         'Organizational Announcements @ PMU & PMI')
+        time.sleep(3)
+        user_markup.row('Nice, and finally to provide feedback')
+        bot.send_message(message.from_user.id,
+                         'LAMP Newsletter - fresh information about cultural life and events in Ukraine', reply_markup=user_markup)
+
+    if message.text == 'Nice, and finally to provide feedback':
+        bot.send_message(message.from_user.id,
+                         'Correct')
+        time.sleep(3)
+        bot.send_message(message.from_user.id,
+                         'Get feedback from Buddy & other team members on New Comer\'s integration and recognize Buddy\'s contribution to New Comer integration (consider “Thank you” award, if applicable)')
+        time.sleep(3)
+        bot.send_message(message.from_user.id,
+                         'Meet with New Comer to review his/her Integration using MAP Review Form/FTO and sign it with him/her and set new objectives for next period (First Year)')
+        time.sleep(3)
+        bot.send_message(message.from_user.id,
+                         'Congratulate New Comer with successful integration, consider mini celebration event with the team')
+        time.sleep(3)
+        user_markup.row('Easy!')
+        bot.send_message(message.from_user.id,
+                         'Provide feedback to HR on Integration Process and send the completed Probation Form', reply_markup=user_markup)
+
+    if message.text == 'Easy!':
+        user_markup.row('/restart')
+        bot.send_message(message.from_user.id,
+                         'Easy? Then make that happen!', reply_markup=user_markup)
 
     if message.text == 'Year 1st':
-        bot.send_message(message.from_user.id, 'Sorry! This part is under construction. Try again later!',
-                         reply_markup=user_markup)
+        user_markup.row('O wow, impress me!')
+        bot.send_message(message.from_user.id, 'Hello, lets have a quick talk about First Year plan for New Comer')
+        time.sleep(3)
+        bot.send_message(message.from_user.id, 'I already made the plan so you don\'t even need to think ;) Just use it!', reply_markup=user_markup)
+
+    if message.text == 'O wow, impress me!':
+        bot.send_message(message.from_user.id, 'First you have to ensure that New Comer knows the company\'s strategy and can explain it to new colleagues')
+        time.sleep(3)
+        bot.send_message(message.from_user.id, 'Ensure that New Comer knows PMI 7 Key Behaviors and understands how they relate to his/her job')
+        time.sleep(3)
+        bot.send_message(message.from_user.id, 'Ensure that New Comer knows PMI Global Structure and roles of Global Functions')
+        time.sleep(3)
+        user_markup.row('Ok, thought regarding performance?')
+        bot.send_message(message.from_user.id, 'Ensure that New Comer knows PMU overall structure, roles of different departments and how they collaborate cross-functionally', reply_markup=user_markup)
+
+    if message.text == 'Ok, thought regarding performance?':
+        bot.send_message(message.from_user.id, 'Yep, you have to ensure that New Comer clearly understands how his/her job supports the company’s objectives and has clarity on the deliverables that would miss, meet or exceed his/her annual performance objectives')
+        time.sleep(3)
+        bot.send_message(message.from_user.id, 'Ensure that New Comer has actionable MAP Individual Development Plan, using the 70-20-10 principle')
+        time.sleep(3)
+        bot.send_message(message.from_user.id, 'Consider New Comer participation in fundamentals training on personal and/or managerial effectiveness: For Specialists – Delivering@PMI and For People Managers – Management Skills@PMI')
+        time.sleep(3)
+        bot.send_message(message.from_user.id, 'Ensure that New Comer knows about Career Development Principles and Internal Job Opportunities')
+        time.sleep(3)
+        user_markup.row('Great')
+        bot.send_message(message.from_user.id, 'Ensure you have open dialogue with New Comer on performance and development progress, as well as encourage his/her feedback on your own leadership effectiveness', reply_markup=user_markup)
+
+    if message.text == 'Great':
+        bot.send_message(message.from_user.id, 'Regarding culture: you have to ensure that New Comer has built effective network within the company and knows company\'s Internal communication channels', reply_markup=user_markup)
+        time.sleep(3)
+        user_markup.row('Going to do it, thanks. Great plan!')
+        time.sleep(3)
+        bot.send_message(message.from_user.id, 'Ensure New Comer knows our Employer Brand and actively contributes to PMU Referral Program', reply_markup=user_markup)
+
+    if message.text == 'Going to do it, thanks. Great plan!':
+        user_markup.row('/restart')
+        bot.send_message(message.from_user.id, 'Awesome!', reply_markup=user_markup)
 
 
-#__________________________________________________________________________________
+
+
+    #__________________________________________________________________________________
 #---------------------Message handlers: for 'New Comer' choise---------------------
 #__________________________________________________________________________________
 
@@ -168,7 +329,7 @@ def handle_message(message):
         bot.send_message(message.from_user.id, 'I am Cognitive HR Robot, I can guide you what you have to do today in '
                                                'the company to make the process of adaptation easier, '
                                                'faster & more interesting.')
-        time.sleep(4)
+        time.sleep(6)
         bot.send_message(message.from_user.id, 'I am also able to manage all routing and reporting process between you,'
                                                ' your Supervisor and Buddy to save your time.')
         time.sleep(4)
@@ -207,20 +368,20 @@ def handle_message(message):
         time.sleep(3)
         bot.send_message(message.from_user.id, '1. Ask your Buddy to take you to "Environment, Health and Safety"'
                                                ' and to "Information Services" trainings')
-        time.sleep(3)
+        time.sleep(5)
         bot.send_message(message.from_user.id, '2. Then your Supervisor will review your Job Description '
                                                'and discuss your main accountabilities')
-        time.sleep(3)
+        time.sleep(5)
         bot.send_message(message.from_user.id, '3. You also have to learn about the PMU On-Boarding Tool and get '
                                                'Welcome Word from PMU Managing Director online')
-        time.sleep(3)
+        time.sleep(5)
         url_button = telebot.types.InlineKeyboardButton('PMU', url='http://workpoint.pmiapps.biz/teams'
                                                                    '/HRTS1/PIT/default.aspx')
         inline_keyboard.add(url_button)
         bot.send_message(message.from_user.id, "Find this info under this link:", reply_markup=inline_keyboard)
         bot.send_message(message.from_user.id, '4. Learn the Guide Book of Success (The PMI Code of Conduct) and '
                                                'Principles & Practices relevant for your Department')
-        time.sleep(3)
+        time.sleep(6)
         inline_keyboard = telebot.types.InlineKeyboardMarkup()
         url_button = telebot.types.InlineKeyboardButton('PMI', url='http://pmiprinciples.app.pmi/English/_layouts/PMI/'
                                                                    'PPP/FrontEnd/index.aspx?c=Ukraine&tabNumber=1')
@@ -248,6 +409,7 @@ def handle_message(message):
         user_markup.row('Thanks, bye!')
         bot.send_message(message.from_user.id, 'Have a great day! See you later.', reply_markup=user_markup)
     if message.text == 'Thanks, bye!':
+        user_markup.row('/restart')
         bot.send_message(message.from_user.id, 'Use commands below', reply_markup=user_markup)
 
 #====================================  First week ===========================================
@@ -257,7 +419,7 @@ def handle_message(message):
         time.sleep(1)
         bot.send_message(message.from_user.id, 'This is your first week in Phillip Morris which is an engaging and '
                                                'excitingperiod when you learn more about the Company.')
-        time.sleep(3)
+        time.sleep(4)
         user_markup.row('Hey! Great! Tell me.')
         bot.send_message(message.from_user.id, 'I will introduce you a list of things that should be done.',
                          reply_markup=user_markup)
@@ -271,7 +433,7 @@ def handle_message(message):
         bot.send_message(message.from_user.id, '1. Checking if you have all equipment you need to perform your job'
                                                'You can contact HelpDesk (HelpDeskUkraine.pmi@pmi.com) for help, '
                                                'or ask your @Supervisor or @Buddy for assistance')
-        time.sleep(3)
+        time.sleep(5)
         bot.send_message(message.from_user.id, '2. Learning about [PMUBenefits](http://workpoint.pmiapps.biz/teams/'
                                                'HRTS2/ECABU/Pages/default.aspx)',
                                                 parse_mode='markdown', disable_web_page_preview=True)
@@ -280,7 +442,7 @@ def handle_message(message):
                                                'teams/SSTS2/PGS/Pages/default.aspx) '
                                                'where you can find all issues, connected to administrative services.',
                                                 parse_mode='markdown', disable_web_page_preview=True)
-        time.sleep(3)
+        time.sleep(4)
         bot.send_message(message.from_user.id, '4. Getting an information about how to arrange [BusinessTrips](http://'
                                                'workpoint.pmiapps.biz/teams/SSTS2/PBT/Pages/default.aspx).'
                                                'You have to keep the [list](http://workpoint.pmiapps.biz/teams/SSTS2/PBT'
@@ -288,12 +450,12 @@ def handle_message(message):
                                                'of departments and regional offices '
                                                'assistants at hand to clarify any travel-related questions.',
                                                 parse_mode='markdown', disable_web_page_preview=True)
-        time.sleep(3)
+        time.sleep(6)
         bot.send_message(message.from_user.id, '5. Learning about [IMDLplatform](http://imdl-service.app.pmi/) '
                                                'that allows to request different accesses and roles '
                                                'to internal PMU/PMI systems.',
                                                 parse_mode='markdown', disable_web_page_preview=True)
-        time.sleep(3)
+        time.sleep(4)
         bot.send_message(message.from_user.id, 'You can also ask your @Buddy to help here.')
         time.sleep(2)
         user_markup.row('Cool, awesome! Thanks!')
@@ -385,6 +547,7 @@ def handle_message(message):
                                                'and discuss your integration progress!', reply_markup=user_markup,
                                                 parse_mode='markdown', disable_web_page_preview=True)
     if message.text == 'Thank you!':
+        user_markup.row('/restart')
         bot.send_message(message.from_user.id, 'You are welcome! See you!', reply_markup=user_markup)
 
     # ====================================  First 90 days ===========================================
@@ -532,7 +695,8 @@ def handle_message(message):
                          parse_mode='markdown', disable_web_page_preview=True)
 
     if message.text == 'Great! I\'m surer excited!':
-        bot.send_message(message.from_user.id, 'Seee you! :)')
+        user_markup.row('/restart')
+        bot.send_message(message.from_user.id, 'Seee you! :)', reply_markup=user_markup)
 
 
     if message.text == 'First Year':
@@ -581,7 +745,8 @@ def handle_message(message):
         bot.send_message(message.from_user.id, 'And Ensure that you know company’s Employer Brand and actively contribute to [PMU Referral Program](https://workpoint.pmiapps.biz/references/HRRS1/PHJO/Lists/Employee%20Referral%20Program/AllItems.aspx)', reply_markup=user_markup, parse_mode='markdown', disable_web_page_preview=True)
 
     if message.text == 'Thank you so much!':
-        bot.send_message(message.from_user.id, 'You are Welcome!')
+        user_markup.row('/restart')
+        bot.send_message(message.from_user.id, 'You are Welcome!', reply_markup=user_markup)
 
 
 
@@ -649,7 +814,8 @@ def handle_message(message):
         user_markup.row('Bye')
         bot.send_message(message.from_user.id, 'You are welcome! See you tomorrow, will ping you!', reply_markup=user_markup)
     if message.text == 'Bye':
-        bot.send_message(message.from_user.id, 'Have a nice day!')
+        user_markup.row('/restart')
+        bot.send_message(message.from_user.id, 'Have a nice day!', reply_markup=user_markup)
 
 
     if message.text == '1st Day':
@@ -681,7 +847,8 @@ def handle_message(message):
     if message.text == 'Sounds Easy! I\'m ready to go!':
         bot.send_message(message.from_user.id, 'Good luck!')
         time.sleep(2)
-        bot.send_message(message.from_user.id, 'Make it happen!')
+        user_markup.row('/restart')
+        bot.send_message(message.from_user.id, 'Make it happen!', reply_markup=user_markup)
 
 
 
@@ -738,7 +905,8 @@ def handle_message(message):
         bot.send_message(message.from_user.id, 'And last thing by provess review perspective you have to Provide feedback on New Comer’s integration to @Supervisor', reply_markup=user_markup)
 
     if message.text == 'No problem, will do that!':
-        bot.send_message(message.from_user.id, 'Then ok, have a productive time!')
+        user_markup.row('/restart')
+        bot.send_message(message.from_user.id, 'Then ok, have a productive time!', reply_markup=user_markup)
 
 
     if message.text == '1st 90 Days':
@@ -778,7 +946,8 @@ def handle_message(message):
         bot.send_message(message.from_user.id, 'Provide feedback to HR on Integration Process', reply_markup=user_markup)
 
     if message.text == 'Thnx, that\'s good to know':
-        bot.send_message(message.from_user.id, 'Np, see you later!')
+        user_markup.row('/restart')
+        bot.send_message(message.from_user.id, 'Np, see you later!', reply_markup=user_markup)
 
 
 
