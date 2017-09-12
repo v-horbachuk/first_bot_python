@@ -1,1 +1,1 @@
-worker: python 111.py
+worker: python cogn_telebot.py
