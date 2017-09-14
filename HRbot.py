@@ -33,7 +33,7 @@ class User(object):
         msg['From'] = fromaddr
         msg['To'] = toaddr
         msg['Subject'] = "Onboarding Experience"
-        link = 'https://telegram.me/VHT_bot?start={0}'.format(hased_email)
+        link = 'https://telegram.me/CognitiveHRBot?start={0}'.format(hased_email)
         body = 'Hello dear friend. We are glad to invite you to our Telegram Onboarding Tool. Use the link to ' \
                    'discover this great experience! ' + '{0}'.format(link)
         msg.attach(MIMEText(body, 'plain'))
