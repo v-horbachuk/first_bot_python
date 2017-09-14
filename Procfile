@@ -1,1 +1,1 @@
-worker: python cogn_telebot.py
+worker: python HRbot.py
