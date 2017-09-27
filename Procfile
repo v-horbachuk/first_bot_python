@@ -1,1 +1,1 @@
-worker: python HRbot.py
+worker: python HRbot_Sw.py
